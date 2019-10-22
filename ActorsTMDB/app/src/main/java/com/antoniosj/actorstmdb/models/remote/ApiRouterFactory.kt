@@ -1,4 +1,4 @@
-package com.antoniosj.actorstmdb.model.remote
+package com.antoniosj.actorstmdb.models.remote
 
 import com.antoniosj.actorstmdb.Constants
 import okhttp3.Interceptor
