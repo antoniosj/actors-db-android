@@ -9,7 +9,7 @@ import com.antoniosj.actorstmdb.viewmodels.PersonViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    val viewModel: PersonViewModel by lazy {
+    private val personViewModel: PersonViewModel by lazy {
         ViewModelProviders.of(this).get(PersonViewModel::class.java)
     }
 
@@ -17,9 +17,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel.personResponse.observe(this, Observer {
+        personViewModel.personResponse.observe(this, Observer {
             s -> Log.d("ASJ", s.results.toString())
         })
-        viewModel.loadPeople()
+        
+        personViewModel.loadPeople()
     }
 }

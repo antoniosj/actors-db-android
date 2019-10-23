@@ -1,5 +1,5 @@
 package com.antoniosj.actorstmdb
 
 object Constants {
-    var tmdbApiKey = BuildConfig.TMDB_API_KEY
+    const val tmdbApiKey = BuildConfig.TMDB_API_KEY
 }

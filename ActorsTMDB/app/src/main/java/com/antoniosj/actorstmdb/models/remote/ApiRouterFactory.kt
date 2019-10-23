@@ -9,6 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 //service
 object ApiRouterFactory {
 
+    private const val BASE_URL = "https://api.themoviedb.org/3/"
+
     private val authInterceptor = Interceptor {
         chain ->
         val newUrl = chain.request()
@@ -31,7 +33,7 @@ object ApiRouterFactory {
 
     private fun apiBuilder(): Retrofit = Retrofit.Builder()
         .client(tmdbClient)
-        .baseUrl("https://api.themoviedb.org/3/") // ajustar
+        .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
