@@ -2,8 +2,8 @@ package com.antoniosj.actorstmdb.models.repository
 
 import com.antoniosj.actorstmdb.models.remote.ApiRouterFactory
 
-class PersonRepository {
+class ActorsRepository {
 
-    suspend fun getPeople() = ApiRouterFactory.tmdbApi.getPopularPeople()
+    suspend fun getAll() = ApiRouterFactory.tmdbApi.getPopularActors()
 
 }
