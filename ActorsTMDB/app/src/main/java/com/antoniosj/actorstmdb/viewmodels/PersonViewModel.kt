@@ -13,18 +13,17 @@ import kotlinx.coroutines.withContext
 
 class PersonViewModel: ViewModel() {
 
-
-    val repository: PersonRepository = PersonRepository()
-    val _personResponse = MutableLiveData<TmdbPersonResponse>()
-    val personResponse: LiveData<TmdbPersonResponse> = _personResponse
+    private val repository: PersonRepository = PersonRepository()
+    private val mutablePersonResponse = MutableLiveData<TmdbPersonResponse>()
+    val personResponse: LiveData<TmdbPersonResponse> = mutablePersonResponse
 
     fun loadPeople() {
         viewModelScope.launch {
-            val person = withContext(Dispatchers.IO) {
+            val personResponse = withContext(Dispatchers.IO) {
                 repository.getPeople()
             }
-            _personResponse.value = person
-            Log.d("ASJ", _personResponse.value.toString())
+            mutablePersonResponse.value = personResponse
+            Log.d("ASJ", mutablePersonResponse.value.toString())
         }
     }
 
