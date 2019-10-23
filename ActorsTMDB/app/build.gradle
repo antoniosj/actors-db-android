@@ -74,14 +74,12 @@ dependencies {
     //coroutines core & android
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
-
-
+    
     //gson
     implementation "com.google.code.gson:gson:$gsonVersion"
-    // ViewModel and LiveData
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
     // Test helpers for LiveData
     testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
+
 
 }
