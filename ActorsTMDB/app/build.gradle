@@ -67,7 +67,7 @@ dependencies {
 
 
     //gson
-    implementation "com.google.code.gson:gson:$gsonVersion"
+    //implementation "com.google.code.gson:gson:$gsonVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
