@@ -1,4 +1,4 @@
-package com.antoniosj.actorstmdb.models.remote
+package com.antoniosj.actorstmdb.remote
 
 import com.antoniosj.actorstmdb.Constants
 import okhttp3.Interceptor
@@ -6,7 +6,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-//service
+//Build the Retrofit api
 object ApiRouterFactory {
 
     private const val BASE_URL = "https://api.themoviedb.org/3/"

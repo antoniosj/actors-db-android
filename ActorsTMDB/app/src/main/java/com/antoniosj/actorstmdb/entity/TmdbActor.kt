@@ -1,4 +1,4 @@
-package com.antoniosj.actorstmdb.models.entity
+package com.antoniosj.actorstmdb.entity
 
 data class TmdbActor(
     val id: Int,
