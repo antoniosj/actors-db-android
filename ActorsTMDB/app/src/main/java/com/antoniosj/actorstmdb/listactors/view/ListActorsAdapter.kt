@@ -1,5 +1,6 @@
 package com.antoniosj.actorstmdb.listactors.view
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Adapter
@@ -20,16 +21,21 @@ import kotlinx.android.synthetic.main.actor_item.view.*
 class ListActorsAdapter(val actorsResponse: TmdbActorResponse, val callback: (TmdbActor) -> Unit)
     : RecyclerView.Adapter<ListActorsAdapter.ListActorsViewHolder>() {
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListActorsViewHolder {
-        TODO("not implemented")
+        //maybe I can get context from constructor
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.actor_item, parent, false)
+        return ListActorsViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return actorsResponse.results.size
     }
 
     override fun onBindViewHolder(holder: ListActorsViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val actorName = actorsResponse.results[position].name
+        holder.tvActors.text = actorName
     }
 
 
