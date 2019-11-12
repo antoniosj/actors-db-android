@@ -36,6 +36,8 @@ class ListActorsAdapter(val actorsResponse: TmdbActorResponse, val callback: (Tm
     override fun onBindViewHolder(holder: ListActorsViewHolder, position: Int) {
         val actorName = actorsResponse.results[position].name
         holder.tvActors.text = actorName
+        holder.tvActors.setOnClickListener { callback(actorsResponse.results[position]) }
+
     }
 
 
