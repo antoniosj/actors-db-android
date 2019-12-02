@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.antoniosj.actorstmdb.R
@@ -15,7 +16,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     lateinit var listActorsAdapter: ListActorsAdapter
-    lateinit var recyclerView: RecyclerView
 
     /*
      * temporary. Change for Dagger in the future
@@ -30,11 +30,11 @@ class MainActivity : AppCompatActivity() {
 
         listActorsViewModel.personResponse.observe(this, Observer {
             s -> Log.d("ASJ", s.results.toString())
-            listActorsAdapter = ListActorsAdapter(s) {
+            listActorsAdapter = ListActorsAdapter(this, s) {
                 clicked(it)
             }
             rv_actors.adapter = listActorsAdapter
-            rv_actors.layoutManager = LinearLayoutManager(this)
+            rv_actors.layoutManager = GridLayoutManager(this, 2)
         })
         
         listActorsViewModel.loadPeople()

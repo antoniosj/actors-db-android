@@ -1,5 +1,6 @@
 package com.antoniosj.actorstmdb.listactors.view
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.antoniosj.actorstmdb.R
 import com.antoniosj.actorstmdb.entity.TmdbActor
 import com.antoniosj.actorstmdb.remote.TmdbActorResponse
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.actor_item.view.*
 
 /**
@@ -18,7 +20,7 @@ import kotlinx.android.synthetic.main.actor_item.view.*
  * que contém uma lista de actors dentro
  * @property callback callback que vai enviar o actor clicado para a view
  */
-class ListActorsAdapter(val actorsResponse: TmdbActorResponse, val callback: (TmdbActor) -> Unit)
+class ListActorsAdapter(val context: Context, val actorsResponse: TmdbActorResponse, val callback: (TmdbActor) -> Unit)
     : RecyclerView.Adapter<ListActorsAdapter.ListActorsViewHolder>() {
 
 
@@ -36,6 +38,7 @@ class ListActorsAdapter(val actorsResponse: TmdbActorResponse, val callback: (Tm
     override fun onBindViewHolder(holder: ListActorsViewHolder, position: Int) {
         val actorName = actorsResponse.results[position].name
         holder.tvActors.text = actorName
+        //Glide.with(context).load()
         holder.tvActors.setOnClickListener { callback(actorsResponse.results[position]) }
 
     }
