@@ -36,9 +36,9 @@ class ListActorsAdapter(val context: Context, val actorsResponse: TmdbActorRespo
     }
 
     override fun onBindViewHolder(holder: ListActorsViewHolder, position: Int) {
-        val actorName = actorsResponse.results[position].name
-        holder.tvActors.text = actorName
-        //Glide.with(context).load()
+        var actor: TmdbActor  = actorsResponse.results[position]
+        holder.tvActors.text = actor.name
+        //Glide.with(context).load(actor.profilePath).into()
         holder.tvActors.setOnClickListener { callback(actorsResponse.results[position]) }
 
     }
@@ -60,5 +60,7 @@ class ListActorsAdapter(val context: Context, val actorsResponse: TmdbActorRespo
         // java = super(itemView)
         : RecyclerView.ViewHolder(itemView) {
         var tvActors: TextView = itemView.tv_actors
+        //TODO add aqui
+        var imProfile: ImageView = itemView.im_profile
     }
 }
