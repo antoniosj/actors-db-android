@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Adapter
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.antoniosj.actorstmdb.R
@@ -38,7 +39,7 @@ class ListActorsAdapter(val context: Context, val actorsResponse: TmdbActorRespo
     override fun onBindViewHolder(holder: ListActorsViewHolder, position: Int) {
         var actor: TmdbActor  = actorsResponse.results[position]
         holder.tvActors.text = actor.name
-        //Glide.with(context).load(actor.profilePath).into()
+        Glide.with(context).load(actor.profilePath).into(holder.imProfile)
         holder.tvActors.setOnClickListener { callback(actorsResponse.results[position]) }
 
     }
