@@ -6,6 +6,6 @@ import retrofit2.http.GET
 interface TmdbService {
 
     @GET("person/popular")
-    suspend fun getPopularActors() : TmdbActorResponse
+    suspend fun getPopularActors() : ActorResponse
 
 }

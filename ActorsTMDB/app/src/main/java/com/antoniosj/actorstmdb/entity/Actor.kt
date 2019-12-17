@@ -3,7 +3,7 @@ package com.antoniosj.actorstmdb.entity
 import com.antoniosj.actorstmdb.Constants
 import com.google.gson.annotations.SerializedName
 
-class TmdbActor(
+class Actor(
     var id: Int,
     var name: String,
     //@SerializedName("profile_path")

@@ -6,10 +6,8 @@ import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.antoniosj.actorstmdb.R
-import com.antoniosj.actorstmdb.entity.TmdbActor
+import com.antoniosj.actorstmdb.entity.Actor
 import com.antoniosj.actorstmdb.listactors.viewmodel.ListActorsViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -28,19 +26,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        listActorsAdapter = ListActorsAdapter(this)
+        rv_actors.adapter = listActorsAdapter
+        rv_actors.layoutManager = GridLayoutManager(this, 2)
+
+        listActorsViewModel.loadPeople()
+
         listActorsViewModel.personResponse.observe(this, Observer {
-            s -> Log.d("ASJ", s.results.toString())
-            listActorsAdapter = ListActorsAdapter(this, s) {
+            actorsResponse ->
+            listActorsAdapter.setActors(actorsResponse.results) {
                 clicked(it)
             }
-            rv_actors.adapter = listActorsAdapter
-            rv_actors.layoutManager = GridLayoutManager(this, 2)
         })
         
-        listActorsViewModel.loadPeople()
+
     }
 
-    fun clicked(actor: TmdbActor) {
+    fun clicked(actor: Actor) {
         //in future this will open a detail screen
         Log.d("ASJ", actor.name)
     }

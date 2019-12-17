@@ -4,13 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.antoniosj.actorstmdb.R
-import com.antoniosj.actorstmdb.entity.TmdbActor
-import com.antoniosj.actorstmdb.remote.TmdbActorResponse
+import com.antoniosj.actorstmdb.entity.Actor
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.actor_item.view.*
 
@@ -21,26 +19,34 @@ import kotlinx.android.synthetic.main.actor_item.view.*
  * que contém uma lista de actors dentro
  * @property callback callback que vai enviar o actor clicado para a view
  */
-class ListActorsAdapter(val context: Context, val actorsResponse: TmdbActorResponse, val callback: (TmdbActor) -> Unit)
+class ListActorsAdapter(private val context: Context)
     : RecyclerView.Adapter<ListActorsAdapter.ListActorsViewHolder>() {
 
+    var actorsResponse: List<Actor> = ArrayList()
+    lateinit var callback: (Actor) -> Unit
+
+    //This way I avoid orientation changes problems
+    fun setActors(actors: List<Actor>, callback: (Actor) -> Unit) {
+        actorsResponse = actors
+        this.callback = callback
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListActorsViewHolder {
-        //maybe I can get context from constructor
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.actor_item, parent, false)
         return ListActorsViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return actorsResponse.results.size
+        return actorsResponse.size
     }
 
     override fun onBindViewHolder(holder: ListActorsViewHolder, position: Int) {
-        var actor: TmdbActor  = actorsResponse.results[position]
+        var actor: Actor  = actorsResponse[position]
         holder.tvActors.text = actor.name
         Glide.with(context).load(actor.profilePath).into(holder.imProfile)
-        holder.tvActors.setOnClickListener { callback(actorsResponse.results[position]) }
+        holder.tvActors.setOnClickListener { this.callback(actorsResponse[position]) }
 
     }
 
