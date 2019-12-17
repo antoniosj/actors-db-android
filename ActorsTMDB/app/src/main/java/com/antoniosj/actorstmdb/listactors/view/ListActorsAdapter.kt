@@ -46,7 +46,7 @@ class ListActorsAdapter(private val context: Context)
         var actor: Actor  = actorsResponse[position]
         holder.tvActors.text = actor.name
         Glide.with(context).load(actor.profilePath).into(holder.imProfile)
-        holder.tvActors.setOnClickListener { this.callback(actorsResponse[position]) }
+        holder.imProfile.setOnClickListener { this.callback(actorsResponse[position]) }
 
     }
 
