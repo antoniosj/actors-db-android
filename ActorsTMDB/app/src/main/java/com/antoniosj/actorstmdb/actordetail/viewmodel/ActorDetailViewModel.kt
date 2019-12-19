@@ -8,10 +8,7 @@ import com.antoniosj.actorstmdb.entity.Actor
 //TODO
 class ActorDetailViewModel : ViewModel() {
 
-    lateinit var context: Context
+    fun getMovieCredits() {
 
-//    fun initUi(ctx: Context): LiveData<Actor> {
-//        context = ctx
-//    }
-
+    }
 }

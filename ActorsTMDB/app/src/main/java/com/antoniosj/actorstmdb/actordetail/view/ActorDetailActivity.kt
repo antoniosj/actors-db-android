@@ -16,7 +16,7 @@ class ActorDetailActivity : AppCompatActivity() {
         initUi()
     }
 
-    fun initUi() {
+    private fun initUi() {
         var actor = intent.getSerializableExtra("ACTOR") as Actor
         tv_actor_name.text = actor.name
         tv_actor_popularity.text = actor.popularity.toString()
