@@ -8,4 +8,6 @@ interface TmdbService {
     @GET("person/popular")
     suspend fun getPopularActors() : ActorResponse
 
+    suspend fun getMovieCredits()
+
 }
