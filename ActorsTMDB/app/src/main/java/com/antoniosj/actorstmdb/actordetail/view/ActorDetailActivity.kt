@@ -13,6 +13,7 @@ import com.antoniosj.actorstmdb.entity.MovieCredit
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_actor_detail.*
 
+//TODO incluir o cardview na tela
 class ActorDetailActivity : AppCompatActivity() {
 
     lateinit var actorsDetailViewModel: ActorDetailViewModel
