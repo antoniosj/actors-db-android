@@ -36,8 +36,9 @@ class ActorDetailActivity : AppCompatActivity() {
     }
 
     private fun getMovieCredit(id: Int) {
+        actorsDetailViewModel.movieCreditsResponse
         actorsDetailViewModel.getMovieCredits(id).observe(this, Observer {
-//            Log.d("ASJ", it.movieCredits[0])
+            Log.d("ASJ", it.movieCredits[0].character)
         })
     }
 }

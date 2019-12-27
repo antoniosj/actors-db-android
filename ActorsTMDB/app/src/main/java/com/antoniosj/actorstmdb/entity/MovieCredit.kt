@@ -6,7 +6,7 @@ import java.io.Serializable
 
 class MovieCredit(
     @SerializedName("vote_average")
-    var voteAverage: Int,
+    var voteAverage: Float,
     var title: String,
     var character: String,
     var overview: String,

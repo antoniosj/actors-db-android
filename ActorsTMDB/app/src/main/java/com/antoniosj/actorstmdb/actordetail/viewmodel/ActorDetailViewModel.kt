@@ -18,7 +18,7 @@ class ActorDetailViewModel : ViewModel() {
 
     private val repository: Repository<MovieCreditResponse> = MovieCreditsRepository()
     private var mutableMovieCreditsResponse = MutableLiveData<MovieCreditResponse>()
-    private val movieCreditsResponse: LiveData<MovieCreditResponse> = mutableMovieCreditsResponse
+    val movieCreditsResponse: LiveData<MovieCreditResponse> = mutableMovieCreditsResponse
 
     fun getMovieCredits(id: Int) : LiveData<MovieCreditResponse> {
         viewModelScope.launch {
