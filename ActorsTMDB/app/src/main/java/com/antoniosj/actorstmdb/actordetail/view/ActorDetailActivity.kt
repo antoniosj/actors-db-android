@@ -4,8 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Adapter
+import android.widget.LinearLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.antoniosj.actorstmdb.R
 import com.antoniosj.actorstmdb.actordetail.viewmodel.ActorDetailViewModel
 import com.antoniosj.actorstmdb.entity.Actor
@@ -13,14 +16,19 @@ import com.antoniosj.actorstmdb.entity.MovieCredit
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_actor_detail.*
 
-//TODO incluir o cardview na tela
 class ActorDetailActivity : AppCompatActivity() {
 
     lateinit var actorsDetailViewModel: ActorDetailViewModel
+    lateinit var movieCreditAdapter: MovieCreditAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actor_detail)
+
+        movieCreditAdapter = MovieCreditAdapter(this)
+        rv_movie_credit.adapter = movieCreditAdapter
+        rv_movie_credit.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         actorsDetailViewModel = ViewModelProviders.of(this)
             .get(ActorDetailViewModel::class.java)
@@ -39,7 +47,7 @@ class ActorDetailActivity : AppCompatActivity() {
     private fun getMovieCredit(id: Int) {
         actorsDetailViewModel.movieCreditsResponse
         actorsDetailViewModel.getMovieCredits(id).observe(this, Observer {
-            Log.d("ASJ", it.movieCredits[0].character)
+            movieCreditAdapter.setMovieCredits(it.movieCredits)
         })
     }
 }

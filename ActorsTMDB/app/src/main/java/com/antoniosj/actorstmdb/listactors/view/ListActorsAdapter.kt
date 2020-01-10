@@ -67,7 +67,6 @@ class ListActorsAdapter(private val context: Context)
         // java = super(itemView)
         : RecyclerView.ViewHolder(itemView) {
         var tvActors: TextView = itemView.tv_actors
-        //TODO add aqui
         var imProfile: ImageView = itemView.im_profile
     }
 }
