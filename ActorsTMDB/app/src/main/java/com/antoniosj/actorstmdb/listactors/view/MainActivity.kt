@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         listActorsAdapter = ListActorsAdapter(this)
         rv_actors.adapter = listActorsAdapter
         rv_actors.layoutManager = GridLayoutManager(this, 3)
-
+        
         listActorsViewModel.getActors()
 
         listActorsViewModel.personResponse.observe(this, Observer {
