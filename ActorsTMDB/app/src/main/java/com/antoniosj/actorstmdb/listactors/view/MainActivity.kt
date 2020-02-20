@@ -9,9 +9,11 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.antoniosj.actorstmdb.R
 import com.antoniosj.actorstmdb.actordetail.view.ActorDetailActivity
+import com.antoniosj.actorstmdb.di.ActorsApplication
 import com.antoniosj.actorstmdb.entity.Actor
 import com.antoniosj.actorstmdb.listactors.viewmodel.ListActorsViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,17 +22,17 @@ class MainActivity : AppCompatActivity() {
     /*
      * temporary. Change for Dagger in the future
      */
-    private val listActorsViewModel: ListActorsViewModel by lazy {
-        ViewModelProviders.of(this).get(ListActorsViewModel::class.java)
-    }
+    @Inject lateinit var listActorsViewModel: ListActorsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        (application as ActorsApplication).appComponent.inject(this)
         setContentView(R.layout.activity_main)
 
         listActorsAdapter = ListActorsAdapter(this)
         rv_actors.adapter = listActorsAdapter
-        rv_actors.layoutManager = GridLayoutManager(this, 3)
+        rv_actors.layoutManager = GridLayoutManager(this, 2)
         
         listActorsViewModel.getActors()
 

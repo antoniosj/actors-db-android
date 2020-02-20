@@ -13,10 +13,11 @@ import com.antoniosj.actorstmdb.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class ListActorsViewModel: ViewModel() {
+class ListActorsViewModel @Inject constructor(val repository: Repository<ActorResponse>): ViewModel() {
 
-    private val repository: Repository<ActorResponse> = ActorsRepository()
+    //private val repository: Repository<ActorResponse> = ActorsRepository()
     private val mutablePersonResponse = MutableLiveData<ActorResponse>()
     val personResponse: LiveData<ActorResponse> = mutablePersonResponse
 
