@@ -15,9 +15,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class ListActorsViewModel @Inject constructor(val repository: Repository<ActorResponse>): ViewModel() {
+class ListActorsViewModel @Inject constructor(private val repository: Repository<ActorResponse>)
+    : ViewModel() {
 
-    //private val repository: Repository<ActorResponse> = ActorsRepository()
     private val mutablePersonResponse = MutableLiveData<ActorResponse>()
     val personResponse: LiveData<ActorResponse> = mutablePersonResponse
 

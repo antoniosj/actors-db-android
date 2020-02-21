@@ -1,4 +1,4 @@
-package com.antoniosj.actorstmdb.di
+package com.antoniosj.actorstmdb.di.modules
 
 import android.app.Application
 import android.content.Context

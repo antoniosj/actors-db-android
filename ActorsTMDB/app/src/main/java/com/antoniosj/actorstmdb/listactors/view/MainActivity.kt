@@ -5,11 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.antoniosj.actorstmdb.R
 import com.antoniosj.actorstmdb.actordetail.view.ActorDetailActivity
-import com.antoniosj.actorstmdb.di.ActorsApplication
+import com.antoniosj.actorstmdb.ActorsApplication
 import com.antoniosj.actorstmdb.entity.Actor
 import com.antoniosj.actorstmdb.listactors.viewmodel.ListActorsViewModel
 import kotlinx.android.synthetic.main.activity_main.*

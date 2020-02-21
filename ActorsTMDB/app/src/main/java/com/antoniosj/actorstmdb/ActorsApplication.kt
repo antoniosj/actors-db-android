@@ -1,6 +1,9 @@
-package com.antoniosj.actorstmdb.di
+package com.antoniosj.actorstmdb
 
 import android.app.Application
+import com.antoniosj.actorstmdb.di.components.AppComponent
+import com.antoniosj.actorstmdb.di.components.DaggerAppComponent
+import com.antoniosj.actorstmdb.di.modules.AppModule
 
 class ActorsApplication: Application() {
 

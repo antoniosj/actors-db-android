@@ -13,10 +13,10 @@ import com.antoniosj.actorstmdb.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class ActorDetailViewModel : ViewModel() {
+class ActorDetailViewModel @Inject constructor(val repository: Repository<MovieCreditResponse>) : ViewModel() {
 
-    private val repository: Repository<MovieCreditResponse> = MovieCreditsRepository()
     private var mutableMovieCreditsResponse = MutableLiveData<MovieCreditResponse>()
     val movieCreditsResponse: LiveData<MovieCreditResponse> = mutableMovieCreditsResponse
 

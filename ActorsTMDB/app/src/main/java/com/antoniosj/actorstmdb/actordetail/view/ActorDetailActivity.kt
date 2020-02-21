@@ -1,27 +1,24 @@
 package com.antoniosj.actorstmdb.actordetail.view
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Adapter
-import android.widget.LinearLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.antoniosj.actorstmdb.R
 import com.antoniosj.actorstmdb.actordetail.viewmodel.ActorDetailViewModel
+import com.antoniosj.actorstmdb.ActorsApplication
 import com.antoniosj.actorstmdb.entity.Actor
-import com.antoniosj.actorstmdb.entity.MovieCredit
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_actor_detail.*
+import javax.inject.Inject
 
 class ActorDetailActivity : AppCompatActivity() {
 
-    lateinit var actorsDetailViewModel: ActorDetailViewModel
+    @Inject lateinit var actorsDetailViewModel: ActorDetailViewModel
     lateinit var movieCreditAdapter: MovieCreditAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        (application as ActorsApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actor_detail)
 
@@ -29,9 +26,6 @@ class ActorDetailActivity : AppCompatActivity() {
         rv_movie_credit.adapter = movieCreditAdapter
         rv_movie_credit.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-
-        actorsDetailViewModel = ViewModelProviders.of(this)
-            .get(ActorDetailViewModel::class.java)
 
         initUi()
     }
