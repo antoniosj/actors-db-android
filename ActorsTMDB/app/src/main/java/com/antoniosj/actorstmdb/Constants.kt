@@ -1,6 +1,8 @@
 package com.antoniosj.actorstmdb
 
+import com.antoniosj.actorstmdb.BuildConfig.*
+
 object Constants {
-    const val tmdbApiKey = BuildConfig.TMDB_API_KEY
-    const val IMAGE_PATH_BASE = "https://image.tmdb.org/t/p/original"
+    val tmdbApiKey = TMDB_API_KEY
+    const val IMAGE_PATH_BASE = "https://image.tmdb.org/t/p/w500"
 }

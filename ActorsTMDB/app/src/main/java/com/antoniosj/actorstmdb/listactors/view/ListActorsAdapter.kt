@@ -44,7 +44,7 @@ class ListActorsAdapter(private val context: Context)
 
     override fun onBindViewHolder(holder: ListActorsViewHolder, position: Int) {
         var actor: Actor  = actorsResponse[position]
-        holder.tvActors.text = actor.name
+//        holder.tvActors.text = actor.name
         Glide.with(context).load(actor.profilePath).into(holder.imProfile)
         holder.imProfile.setOnClickListener { this.callback(actorsResponse[position]) }
 
@@ -66,7 +66,7 @@ class ListActorsAdapter(private val context: Context)
     class ListActorsViewHolder(itemView: View)
         // java = super(itemView)
         : RecyclerView.ViewHolder(itemView) {
-        var tvActors: TextView = itemView.tv_actors
+//        var tvActors: TextView = itemView.tv_actors
         var imProfile: ImageView = itemView.im_profile
     }
 }
