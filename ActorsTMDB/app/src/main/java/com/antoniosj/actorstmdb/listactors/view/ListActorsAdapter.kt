@@ -30,7 +30,7 @@ import kotlinx.android.synthetic.main.actor_item.view.*
 *  Também posso usar do método "getItem()" pro paging direto.
 */
 class ListActorsAdapter(private val context: Context)
-    : PagedListAdapter<Actor ,ListActorsAdapter.ListActorsViewHolder>(ActorsDiffCallback()) {
+    : PagedListAdapter<Actor, ListActorsAdapter.ListActorsViewHolder>(ActorsDiffCallback()) {
 
     lateinit var callback: (Actor?) -> Unit
 
