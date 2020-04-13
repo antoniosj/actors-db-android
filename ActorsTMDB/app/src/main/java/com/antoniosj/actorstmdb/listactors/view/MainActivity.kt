@@ -34,18 +34,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initializeList()
-
-        // not in use paging
-
-        //listActorsViewModel.getActors()
-
-//        listActorsViewModel.personResponse.observe(this, Observer {
-//            actorsResponse ->
-//            listActorsAdapter.setActors(actorsResponse.results) {
-//                clicked(it)
-//            }
-//        })
-
     }
 
 
@@ -55,26 +43,19 @@ class MainActivity : AppCompatActivity() {
         rv_actors.adapter = listActorsAdapter
         rv_actors.layoutManager = GridLayoutManager(this, 3)
 
-
         //2
-        val liveData = listActorsViewModel.initializedPagedListBuilder()
+        val actorsPagedList = listActorsViewModel.initializedPagedListBuilder()
 
         //3
-        liveData.observe(this, Observer<PagedList<Actor>> { pagedList ->
+        actorsPagedList.observe(this, Observer<PagedList<Actor>> { pagedList ->
             Log.d("Antonio", pagedList.toString())
             listActorsAdapter.submitList(pagedList)
-            listActorsAdapter.setActors(pagedList) {
-                clicked(it)
+            listActorsAdapter.actorClicked {
+                var intent = Intent(this, ActorDetailActivity::class.java).apply {
+                    putExtra("ACTOR", it)
+                }
+                startActivity(intent)
             }
         })
-    }
-
-    fun clicked(actor: Actor) {
-        //in future this will open a detail screen
-        Log.d("ASJ", actor.name)
-        var intent = Intent(this, ActorDetailActivity::class.java).apply {
-            putExtra("ACTOR", actor)
-        }
-        startActivity(intent)
     }
 }

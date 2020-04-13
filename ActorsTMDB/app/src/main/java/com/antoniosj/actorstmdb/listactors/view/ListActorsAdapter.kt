@@ -32,17 +32,11 @@ import kotlinx.android.synthetic.main.actor_item.view.*
 class ListActorsAdapter(private val context: Context)
     : PagedListAdapter<Actor ,ListActorsAdapter.ListActorsViewHolder>(ActorsDiffCallback()) {
 
-    // not in use: Paging
-    var actorsResponse: List<Actor> = ArrayList()
-
-    lateinit var callback: (Actor) -> Unit
+    lateinit var callback: (Actor?) -> Unit
 
     //This way I avoid orientation changes problems
-    fun setActors(actors: List<Actor>, callback: (Actor) -> Unit) {
-        // not in use: Paging
-        actorsResponse = actors
+    fun actorClicked(callback: (Actor?) -> Unit) {
         this.callback = callback
-        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListActorsViewHolder {
@@ -51,15 +45,10 @@ class ListActorsAdapter(private val context: Context)
         return ListActorsViewHolder(view)
     }
 
-// not in use: Paging
-//    override fun getItemCount(): Int {
-//        return actorsResponse.size
-//    }
-
     override fun onBindViewHolder(holder: ListActorsViewHolder, position: Int) {
-        var actor: Actor? = getItem(position) //actorsResponse[position]
+        var actor: Actor? = getItem(position)
         Glide.with(context).load(actor?.profilePath).into(holder.imProfile)
-        holder.imProfile.setOnClickListener { this.callback(actorsResponse[position]) }
+        holder.imProfile.setOnClickListener { this.callback(actor) }
     }
 
 
@@ -76,9 +65,7 @@ class ListActorsAdapter(private val context: Context)
      * já consegue visualizar
      */
     class ListActorsViewHolder(itemView: View)
-        // java = super(itemView)
         : RecyclerView.ViewHolder(itemView) {
-//        var tvActors: TextView = itemView.tv_actors
         var imProfile: ImageView = itemView.im_profile
     }
 }
