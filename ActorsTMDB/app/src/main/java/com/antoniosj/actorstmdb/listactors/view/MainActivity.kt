@@ -5,15 +5,22 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
+import androidx.paging.DataSource
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
 import androidx.recyclerview.widget.GridLayoutManager
 import com.antoniosj.actorstmdb.R
 import com.antoniosj.actorstmdb.actordetail.view.ActorDetailActivity
 import com.antoniosj.actorstmdb.ActorsApplication
 import com.antoniosj.actorstmdb.entity.Actor
 import com.antoniosj.actorstmdb.listactors.viewmodel.ListActorsViewModel
+import com.antoniosj.actorstmdb.remote.paging.ActorsDataSource
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
+
+// Paging 5/5: Eu não preciso mais observar com o livedata como estava fazendo. Agora eu só preciso
+// passar a lista paginada. Eu deixei o setActors só pelo callback do click, mas nem precisava
 class MainActivity : AppCompatActivity() {
 
     lateinit var listActorsAdapter: ListActorsAdapter
@@ -26,20 +33,40 @@ class MainActivity : AppCompatActivity() {
         (application as ActorsApplication).appComponent.inject(this)
         setContentView(R.layout.activity_main)
 
+        initializeList()
+
+        // not in use paging
+
+        //listActorsViewModel.getActors()
+
+//        listActorsViewModel.personResponse.observe(this, Observer {
+//            actorsResponse ->
+//            listActorsAdapter.setActors(actorsResponse.results) {
+//                clicked(it)
+//            }
+//        })
+
+    }
+
+
+    private fun initializeList() {
+
         listActorsAdapter = ListActorsAdapter(this)
         rv_actors.adapter = listActorsAdapter
         rv_actors.layoutManager = GridLayoutManager(this, 3)
-        
-        listActorsViewModel.getActors()
 
-        listActorsViewModel.personResponse.observe(this, Observer {
-            actorsResponse ->
-            listActorsAdapter.setActors(actorsResponse.results) {
+
+        //2
+        val liveData = listActorsViewModel.initializedPagedListBuilder()
+
+        //3
+        liveData.observe(this, Observer<PagedList<Actor>> { pagedList ->
+            Log.d("Antonio", pagedList.toString())
+            listActorsAdapter.submitList(pagedList)
+            listActorsAdapter.setActors(pagedList) {
                 clicked(it)
             }
         })
-        
-
     }
 
     fun clicked(actor: Actor) {

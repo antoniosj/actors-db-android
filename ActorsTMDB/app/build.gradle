@@ -83,5 +83,6 @@ dependencies {
     //dagger
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
-
+    def paging_version = "1.0.1"
+    implementation "android.arch.paging:runtime:$paging_version"
 }

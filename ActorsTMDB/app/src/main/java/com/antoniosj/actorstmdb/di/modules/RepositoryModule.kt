@@ -17,5 +17,5 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideActorsRepository(): Repository<ActorResponse> = ActorsRepository()
+    fun provideActorsRepository() = ActorsRepository()
 }

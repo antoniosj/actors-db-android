@@ -4,7 +4,7 @@ import com.antoniosj.actorstmdb.remote.ApiRouterFactory
 import com.antoniosj.actorstmdb.remote.MovieCreditResponse
 
 class MovieCreditsRepository : Repository<MovieCreditResponse> {
-    override suspend fun getAll(): MovieCreditResponse {
+    override suspend fun getAll(page: Int): MovieCreditResponse {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

@@ -15,7 +15,7 @@ class ActorsModule {
 
     @Singleton
     @Provides
-    fun provideListActorsViewModel(repository: Repository<ActorResponse>): ListActorsViewModel = ListActorsViewModel(repository)
+    fun provideListActorsViewModel(): ListActorsViewModel = ListActorsViewModel()
 
     @Singleton
     @Provides
