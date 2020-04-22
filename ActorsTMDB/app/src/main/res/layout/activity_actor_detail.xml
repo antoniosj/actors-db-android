@@ -1,48 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".actordetail.view.ActorDetailActivity">
+<ScrollView android:layout_height="match_parent" android:layout_width="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/lyt_parent"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="?attr/selectableItemBackground"
+    android:orientation="vertical"
+android:clickable="true">
 
-    <ImageView
-        android:id="@+id/iv_actor_detail"
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_medium"
+    android:layout_marginLeft="@dimen/spacing_large"
+    android:layout_marginRight="@dimen/spacing_large"
+    android:layout_marginTop="@dimen/spacing_medium"
+    android:clipToPadding="true"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="2dp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_actor_detail"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/backdrop" />
+
+        <TextView
+            android:id="@+id/tv_actor_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_large"
+            android:layout_marginRight="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:text="test test test"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/grey_80"
+            app:fontFamily="sans-serif-medium" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_large"
+            android:layout_marginLeft="@dimen/spacing_large"
+            android:layout_marginRight="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_actor_popularity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Politics"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/grey_40" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wed, 20 Jan 19, 05:08 PM"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/grey_40" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </ImageView>
-
-    <TextView
-        android:id="@+id/tv_actor_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_actor_detail" />
-
-    <TextView
-        android:id="@+id/tv_actor_popularity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_actor_name" />
+        android:layout_marginBottom="@dimen/spacing_medium"
+        android:layout_marginLeft="@dimen/spacing_large"
+        android:layout_marginRight="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:clipToPadding="true"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rv_movie_credit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_actor_popularity" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:id="@+id/rv_movie_credit" />
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
 </ScrollView>

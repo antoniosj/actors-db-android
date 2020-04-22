@@ -35,11 +35,9 @@ class ActorsDataSource(var scope: CoroutineScope): PageKeyedDataSource<Int, Acto
                 callback.onResult(actorResponse.results, null, 2)
             }
         }
-
     }
 
     // pega a página atual e da + 1
-
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, Actor>) {
         scope.launch {
             withContext(Dispatchers.IO) {

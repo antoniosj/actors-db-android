@@ -40,33 +40,4 @@ class ListActorsViewModel @Inject constructor()
         }
         return LivePagedListBuilder<Int, Actor>(dataSourceFactory, config).build()
     }
-
-
-
-
-
-
-
-//    *** Not Used: Paged ***
-
-//    private val mutablePersonResponse = MutableLiveData<ActorResponse>()
-//    val personResponse: LiveData<ActorResponse> = mutablePersonResponse
-//
-//    // Coroutines will dispatch in IO the "fire and go" repository function and set the personResp
-//    // variable
-//
-//    fun getActors() : LiveData<ActorResponse> {
-//        viewModelScope.launch {
-//            val personResponse = withContext(Dispatchers.IO) {
-//                repository.getAll()
-//            }
-//
-//            mutablePersonResponse.value = personResponse
-//            Log.d("ASJ", mutablePersonResponse.value.toString())
-//        }
-//        return personResponse
-//    }
-
-
-
 }
