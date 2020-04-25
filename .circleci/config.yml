@@ -7,7 +7,8 @@ jobs:
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
-     # - checkout
+      working_directory: ~/actors-db-android/ActorsTMDB
+      - checkout
       - restore_cache:
           key: jars-{{ checksum "ActorsTMDB/build.gradle" }}-{{ checksum  "ActorsTMDB/app/build.gradle" }}
       - run:
