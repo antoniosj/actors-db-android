@@ -7,7 +7,7 @@ jobs:
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
-      - checkout
+     # - checkout
       - restore_cache:
           key: jars-{{ checksum "ActorsTMDB/build.gradle" }}-{{ checksum  "ActorsTMDB/app/build.gradle" }}
       - run:
