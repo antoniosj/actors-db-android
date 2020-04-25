@@ -10,7 +10,7 @@ jobs:
       - checkout:
           path: ~/actors-db-android
       - restore_cache:
-          key: jars-{{ checksum "/build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          key: jars-{{ checksum "ActorsTMDB/build.gradle" }}-{{ checksum  "ActorsTMDB/app/build.gradle" }}
       - run:
           name: Print #if permission for Gradlew Dependencies fail, use this.
           command: ls ~/actors-db-android
