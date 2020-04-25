@@ -1,7 +1,6 @@
 package com.antoniosj.actorstmdb.di.modules
 
-import com.antoniosj.actorstmdb.remote.ActorResponse
-import com.antoniosj.actorstmdb.remote.MovieCreditResponse
+import com.antoniosj.actorstmdb.actordetail.model.ActorDetailResponse
 import com.antoniosj.actorstmdb.repository.ActorsRepository
 import com.antoniosj.actorstmdb.repository.MovieCreditsRepository
 import com.antoniosj.actorstmdb.repository.Repository
@@ -13,7 +12,7 @@ import javax.inject.Singleton
 class RepositoryModule {
     @Singleton
     @Provides
-    fun provideMovieCreditsRepository() : Repository<MovieCreditResponse> = MovieCreditsRepository()
+    fun provideMovieCreditsRepository() : Repository<ActorDetailResponse> = MovieCreditsRepository()
 
     @Singleton
     @Provides
