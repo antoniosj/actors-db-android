@@ -1,29 +1,25 @@
 package com.antoniosj.actorstmdb.actordetail.viewmodel
 
-import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.antoniosj.actorstmdb.entity.MovieCredit
-import com.antoniosj.actorstmdb.remote.MovieCreditResponse
-import com.antoniosj.actorstmdb.repository.MovieCreditsRepository
+import com.antoniosj.actorstmdb.actordetail.model.ActorDetailResponse
 import com.antoniosj.actorstmdb.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class ActorDetailViewModel @Inject constructor(val repository: Repository<MovieCreditResponse>) : ViewModel() {
+class ActorDetailViewModel @Inject constructor(val repository: Repository<ActorDetailResponse>) : ViewModel() {
 
-    private var mutableMovieCreditsResponse = MutableLiveData<MovieCreditResponse>()
-    val movieCreditsResponse: LiveData<MovieCreditResponse> = mutableMovieCreditsResponse
+    private var mutableMovieCreditsResponse = MutableLiveData<ActorDetailResponse>()
+    val movieCreditsResponse: LiveData<ActorDetailResponse> = mutableMovieCreditsResponse
 
-    fun getMovieCredits(id: Int) : LiveData<MovieCreditResponse> {
+    fun getMovieCredits(id: Int) : LiveData<ActorDetailResponse> {
         viewModelScope.launch {
             val response = withContext(Dispatchers.IO) {
-                Log.d("ASJ", id.toString())
                 repository.getById(id)
             }
             mutableMovieCreditsResponse.value = response

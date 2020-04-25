@@ -19,8 +19,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 
-// Paging 5/5: Eu não preciso mais observar com o livedata como estava fazendo. Agora eu só preciso
-// passar a lista paginada. Eu deixei o setActors só pelo callback do click, mas nem precisava
 class MainActivity : AppCompatActivity() {
 
     lateinit var listActorsAdapter: ListActorsAdapter
@@ -48,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         //3
         actorsPagedList.observe(this, Observer<PagedList<Actor>> { pagedList ->
-            Log.d("Antonio", pagedList.toString())
+
             listActorsAdapter.submitList(pagedList)
             listActorsAdapter.actorClicked {
                 var intent = Intent(this, ActorDetailActivity::class.java).apply {

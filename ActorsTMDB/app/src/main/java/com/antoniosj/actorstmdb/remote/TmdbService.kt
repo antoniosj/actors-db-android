@@ -1,6 +1,7 @@
 package com.antoniosj.actorstmdb.remote
 
-import retrofit2.Call
+import com.antoniosj.actorstmdb.actordetail.model.ActorDetailResponse
+import com.antoniosj.actorstmdb.listactors.model.ActorResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -13,6 +14,6 @@ interface TmdbService {
                                  ) : ActorResponse
 
     @GET("person/{person_id}/movie_credits")
-    suspend fun getMovieCredits(@Path("person_id") id: Int) : MovieCreditResponse
+    suspend fun getMovieCredits(@Path("person_id") id: Int) : ActorDetailResponse
 
 }

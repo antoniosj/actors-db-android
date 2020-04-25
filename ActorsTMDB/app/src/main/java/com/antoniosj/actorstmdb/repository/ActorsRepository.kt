@@ -1,9 +1,5 @@
 package com.antoniosj.actorstmdb.repository
 
-import com.antoniosj.actorstmdb.entity.Actor
-import com.antoniosj.actorstmdb.remote.ApiRouterFactory
-import com.antoniosj.actorstmdb.remote.ActorResponse
-
 // ** NOT IN USE anymore **
 class ActorsRepository {
 //    : Repository<ActorResponse> {
