@@ -9,6 +9,8 @@ jobs:
     steps:
       - checkout
      #     path: ~/actors-db-android
+     # Set Fabric Api Key with environment variables
+      - run: echo "tmdb_api_key=$TMDB_API_KEY" >> ~/actors-db-android/local.properties
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
