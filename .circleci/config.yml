@@ -1,18 +1,26 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/code/ActorsTMDB
+    working_directory: ~/actors-db-android
     docker:
-      - image: circleci/android:api-25-alpha
+      - image: circleci/android:api-29
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
+     #     path: ~/actors-db-android
+     # Set Fabric Api Key with environment variables
+      - run: 
+          name: key
+          command: echo 'tmdb_api_key="$TMDB_API_KEY"' >> ~/actors-db-android/local.properties
       - restore_cache:
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "ActorsTMDB/app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run: 
+          name: Add YES to License
+          command: yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses || if [ $? -ne '141' ]; then exit $?; fi;  #Captures SIGPIPE 141 error but still allow repeating "y" to accept all licenses
       - run:
           name: Print #if permission for Gradlew Dependencies fail, use this.
-          command: ls ~/code
+          command: ls ~/actors-db-android
       - run:
           name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
           command: sudo chmod +x ./gradlew
