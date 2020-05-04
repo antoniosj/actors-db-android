@@ -14,7 +14,7 @@ import com.antoniosj.actorstmdb.actordetail.view.ActorDetailActivity
 import com.antoniosj.actorstmdb.ActorsApplication
 import com.antoniosj.actorstmdb.entity.Actor
 import com.antoniosj.actorstmdb.listactors.viewmodel.ListActorsViewModel
-import com.antoniosj.actorstmdb.remote.paging.ActorsDataSource
+import com.antoniosj.actorstmdb.repository.paging.ActorsDataSource
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 

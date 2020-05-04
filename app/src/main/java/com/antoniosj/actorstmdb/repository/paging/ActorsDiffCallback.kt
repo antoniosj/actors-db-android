@@ -1,4 +1,4 @@
-package com.antoniosj.actorstmdb.remote.paging
+package com.antoniosj.actorstmdb.repository.paging
 
 import androidx.recyclerview.widget.DiffUtil
 import com.antoniosj.actorstmdb.entity.Actor

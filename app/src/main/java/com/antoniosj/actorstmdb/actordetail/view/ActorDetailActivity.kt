@@ -15,15 +15,15 @@ import javax.inject.Inject
 class ActorDetailActivity : AppCompatActivity() {
 
     @Inject lateinit var actorsDetailViewModel: ActorDetailViewModel
-    lateinit var movieCreditAdapter: MovieCreditAdapter
+    lateinit var actorDetailAdapter: ActorDetailAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as ActorsApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actor_detail)
 
-        movieCreditAdapter = MovieCreditAdapter(this)
-        rv_movie_credit.adapter = movieCreditAdapter
+        actorDetailAdapter = ActorDetailAdapter(this)
+        rv_movie_credit.adapter = actorDetailAdapter
         rv_movie_credit.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
@@ -41,7 +41,7 @@ class ActorDetailActivity : AppCompatActivity() {
     private fun getMovieCredit(id: Int) {
         actorsDetailViewModel.movieCreditsResponse
         actorsDetailViewModel.getMovieCredits(id).observe(this, Observer {
-            movieCreditAdapter.setMovieCredits(it.movieCredits)
+            actorDetailAdapter.setMovieCredits(it.movieCredits)
         })
     }
 }

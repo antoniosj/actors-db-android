@@ -10,7 +10,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.antoniosj.actorstmdb.R
 import com.antoniosj.actorstmdb.entity.Actor
-import com.antoniosj.actorstmdb.remote.paging.ActorsDiffCallback
+import com.antoniosj.actorstmdb.repository.paging.ActorsDiffCallback
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.actor_item.view.*
 

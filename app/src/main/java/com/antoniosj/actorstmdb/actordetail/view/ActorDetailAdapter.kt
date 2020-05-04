@@ -12,8 +12,8 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.movie_credits_item.view.*
 
 
-class MovieCreditAdapter(private val context: Context)
-    : RecyclerView.Adapter<MovieCreditAdapter.MovieCreditViewHolder>() {
+class ActorDetailAdapter(private val context: Context)
+    : RecyclerView.Adapter<ActorDetailAdapter.MovieCreditViewHolder>() {
 
     private var movieCreditResponse : List<MovieCredit> = ArrayList()
 
