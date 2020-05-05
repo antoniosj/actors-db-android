@@ -1,4 +1,4 @@
-package com.antoniosj.actorstmdb.repository.paging
+package com.antoniosj.actorstmdb.repository.bypage
 
 import androidx.recyclerview.widget.DiffUtil
 import com.antoniosj.actorstmdb.entity.Actor
