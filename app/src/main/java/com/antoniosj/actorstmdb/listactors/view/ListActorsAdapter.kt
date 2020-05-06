@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.antoniosj.actorstmdb.R
@@ -47,6 +48,7 @@ class ListActorsAdapter(private val context: Context)
     override fun onBindViewHolder(holder: ListActorsViewHolder, position: Int) {
         var actor: Actor? = getItem(position)
         Glide.with(context).load(actor?.profilePath).into(holder.imProfile)
+        holder.tvActor.text = actor?.name
         holder.imProfile.setOnClickListener { this.callback(actor) }
     }
 
@@ -66,5 +68,6 @@ class ListActorsAdapter(private val context: Context)
     class ListActorsViewHolder(itemView: View)
         : RecyclerView.ViewHolder(itemView) {
         var imProfile: ImageView = itemView.im_profile
+        var tvActor: TextView = itemView.tv_actor_title
     }
 }

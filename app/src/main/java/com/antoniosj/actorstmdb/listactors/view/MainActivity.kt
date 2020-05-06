@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         listActorsAdapter = ListActorsAdapter(this)
         rv_actors.adapter = listActorsAdapter
-        rv_actors.layoutManager = GridLayoutManager(this, 3)
+        rv_actors.layoutManager = GridLayoutManager(this, 2)
 
         //2
         val actorsPagedList = listActorsViewModel.initializedPagedListBuilder()

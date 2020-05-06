@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.antoniosj.actorstmdb.R
 import com.antoniosj.actorstmdb.entity.MovieCredit
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_actor_detail.view.*
 import kotlinx.android.synthetic.main.movie_credits_item.view.*
 
 
