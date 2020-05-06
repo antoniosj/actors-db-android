@@ -1,194 +1,47 @@
-# actors-db-android
+# Popular Actors 
 
-# OCTA
+[![CircleCI](https://circleci.com/gh/antoniosj/actors-db-android.svg?style=svg)](https://circleci.com/gh/antoniosj/actors-db-android)
+
 
 <p align="center">
 <img src="https://github.com/antoniosj/blog-examples/blob/master/actorsdb/actorsdb1.png?raw=true" width="200" /></center>
 <img src="https://github.com/antoniosj/blog-examples/blob/master/actorsdb/actorsdb2.png?raw=true" width="200" /></center>
 <img src="https://github.com/antoniosj/blog-examples/blob/master/actorsdb/actorsdb3.png?raw=true" width="200" /></center>
 </p>
-OCTA is a tool for test case documents classification, which aims to improve its quality using Machine Learning and NLP in the context of oracle problem.
+
+Popular Actors is an app to display the most popular actors of the week and the movies that they're known for acting in. It's a pet project using some of features that I'm studying. There are a lot of features to include and improvements to do which I will do in the future, but feel free to help. 
 
 ### Getting Started
 
-Just download or fork this project. This is only the part of the project that classifies text using TF-IDF and Support Vector Machine. For contract purposes I cannot make public the entire application.
+Just download or fork this project. Open it on Android Studio and run on a simulator or Android device.
 
 ### Prerequisites
 
-Install the requirements and run oracle_solver.py
+1. Android Studio
+2. This project has `minSdkVersion 22`
+3. You will need an [TMDB](https://developers.themoviedb.org/) API key to include inside `local.properties`. I did a bind to **Circle CI** but you can include the key wherever you feel comfortable.
 
-```
-pip3 install -r requirements.txt
-```
-and
+## Some features used
 
-```
-python oracle_solver.py
-```
+* Circle CI
+* Coroutines
+* MVVM
+* Paging
+* Retrofit
+* Dagger2
+* LiveData
+* Glide
+* Constraint Layout
 
-## Built With
+## Some features to add in the future
 
-* [NLTK](https://www.nltk.org/) - Natural Language Toolkit
-* [Scikit-learn](https://scikit-learn.org/) - Machine Learning in Python. Simple and efficient tools for data mining and data analysis
-* [Python 3](https://www.python.org/) - Python Programming Language
-
-## License
-
-This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* This project is part of an application which aims to solve oracle problem in test case documents using controlled language.
-* Not all code could be provided, but the script for classification is complete. 
-# OCTA
-
-<p align="center">
-<img src="https://github.com/antoniosj/blog-examples/blob/master/github-images/octa.png?raw=true" /></center>
-</p>
-OCTA is a tool for test case documents classification, which aims to improve its quality using Machine Learning and NLP in the context of oracle problem.
-
-### Getting Started
-
-Just download or fork this project. This is only the part of the project that classifies text using TF-IDF and Support Vector Machine. For contract purposes I cannot make public the entire application.
-
-### Prerequisites
-
-Install the requirements and run oracle_solver.py
-
-```
-pip3 install -r requirements.txt
-```
-and
-
-```
-python oracle_solver.py
-```
-
-## Built With
-
-* [NLTK](https://www.nltk.org/) - Natural Language Toolkit
-* [Scikit-learn](https://scikit-learn.org/) - Machine Learning in Python. Simple and efficient tools for data mining and data analysis
-* [Python 3](https://www.python.org/) - Python Programming Language
+* Navigation
+* Room
+* Unit and Instrumented Tests
+* Notifications
+* Filter
+* Dark Mode
 
 ## License
 
-This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* This project is part of an application which aims to solve oracle problem in test case documents using controlled language.
-* Not all code could be provided, but the script for classification is complete. 
-# OCTA
-
-<p align="center">
-<img src="https://github.com/antoniosj/blog-examples/blob/master/github-images/octa.png?raw=true" /></center>
-</p>
-OCTA is a tool for test case documents classification, which aims to improve its quality using Machine Learning and NLP in the context of oracle problem.
-
-### Getting Started
-
-Just download or fork this project. This is only the part of the project that classifies text using TF-IDF and Support Vector Machine. For contract purposes I cannot make public the entire application.
-
-### Prerequisites
-
-Install the requirements and run oracle_solver.py
-
-```
-pip3 install -r requirements.txt
-```
-and
-
-```
-python oracle_solver.py
-```
-
-## Built With
-
-* [NLTK](https://www.nltk.org/) - Natural Language Toolkit
-* [Scikit-learn](https://scikit-learn.org/) - Machine Learning in Python. Simple and efficient tools for data mining and data analysis
-* [Python 3](https://www.python.org/) - Python Programming Language
-
-## License
-
-This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* This project is part of an application which aims to solve oracle problem in test case documents using controlled language.
-* Not all code could be provided, but the script for classification is complete. 
-# OCTA
-
-<p align="center">
-<img src="https://github.com/antoniosj/blog-examples/blob/master/github-images/octa.png?raw=true" /></center>
-</p>
-OCTA is a tool for test case documents classification, which aims to improve its quality using Machine Learning and NLP in the context of oracle problem.
-
-### Getting Started
-
-Just download or fork this project. This is only the part of the project that classifies text using TF-IDF and Support Vector Machine. For contract purposes I cannot make public the entire application.
-
-### Prerequisites
-
-Install the requirements and run oracle_solver.py
-
-```
-pip3 install -r requirements.txt
-```
-and
-
-```
-python oracle_solver.py
-```
-
-## Built With
-
-* [NLTK](https://www.nltk.org/) - Natural Language Toolkit
-* [Scikit-learn](https://scikit-learn.org/) - Machine Learning in Python. Simple and efficient tools for data mining and data analysis
-* [Python 3](https://www.python.org/) - Python Programming Language
-
-## License
-
-This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* This project is part of an application which aims to solve oracle problem in test case documents using controlled language.
-* Not all code could be provided, but the script for classification is complete. 
-# OCTA
-
-<p align="center">
-<img src="https://github.com/antoniosj/blog-examples/blob/master/github-images/octa.png?raw=true" /></center>
-</p>
-OCTA is a tool for test case documents classification, which aims to improve its quality using Machine Learning and NLP in the context of oracle problem.
-
-### Getting Started
-
-Just download or fork this project. This is only the part of the project that classifies text using TF-IDF and Support Vector Machine. For contract purposes I cannot make public the entire application.
-
-### Prerequisites
-
-Install the requirements and run oracle_solver.py
-
-```
-pip3 install -r requirements.txt
-```
-and
-
-```
-python oracle_solver.py
-```
-
-## Built With
-
-* [NLTK](https://www.nltk.org/) - Natural Language Toolkit
-* [Scikit-learn](https://scikit-learn.org/) - Machine Learning in Python. Simple and efficient tools for data mining and data analysis
-* [Python 3](https://www.python.org/) - Python Programming Language
-
-## License
-
-This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* This project is part of an application which aims to solve oracle problem in test case documents using controlled language.
-* Not all code could be provided, but the script for classification is complete. 
+Feel free to use. 
