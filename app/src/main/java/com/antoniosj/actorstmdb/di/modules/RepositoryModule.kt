@@ -2,7 +2,7 @@ package com.antoniosj.actorstmdb.di.modules
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagedList
-import com.antoniosj.actorstmdb.actordetail.model.ActorDetailResponse
+import com.antoniosj.actorstmdb.actordetail.model.ActorMovieCreditsResponse
 import com.antoniosj.actorstmdb.entity.Actor
 import com.antoniosj.actorstmdb.remote.TmdbService
 import com.antoniosj.actorstmdb.repository.ActorDetailsRepository
@@ -26,5 +26,5 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideActorDetailsRepository(tmdbService: TmdbService) : Repository<ActorDetailResponse> = ActorDetailsRepository(tmdbService)
+    fun provideActorDetailsRepository(tmdbService: TmdbService) : Repository<Any> = ActorDetailsRepository(tmdbService)
 }

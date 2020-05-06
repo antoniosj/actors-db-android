@@ -11,7 +11,9 @@ class Actor(
     //@SerializedName("profile_path")
     profilePath: String,
     var adult: Boolean,
-    var popularity: Float
+    var popularity: Float,
+    var biography: String,
+    var placeOfBirth: String
 ) : Serializable {
     @SerializedName("profile_path")
     val profilePath = profilePath
