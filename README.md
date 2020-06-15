@@ -26,7 +26,7 @@ Just download or fork this project. Open it on Android Studio and run on a simul
 * Circle CI
 * Coroutines
 * MVVM
-* Paging
+* Paging2
 * Retrofit
 * Dagger2
 * LiveData
